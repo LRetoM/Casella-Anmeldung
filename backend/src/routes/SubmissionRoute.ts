@@ -1,14 +1,14 @@
 import type { Request, Response } from "express";
 import { Router } from "express";
 
-import { EmailService } from "../services/EmailService";
-import { PdfStorageService } from "../services/PdfStorageService";
-import type { ISubmissionRequest } from "../interfaces/ISubmissionRequest";
+import { EmailService } from "../services/EmailService.js";
+import { PdfStorageService } from "../services/PdfStorageService.js";
+import type { ISubmissionRequest } from "../interfaces/ISubmissionRequest.js";
 
 export const submissionRouter: Router = Router();
 
 function buildFileName(nachname: string): string {
-    const sanitizedNachname: string = nachname.replace(/[^a-zA-Z0-9_-]/g, "_");
+    const sanitizedNachname: string = nachname.replace(/[^\p{L}\p{N}_-]/gu, "_");
     const now: Date = new Date();
     const datePart: string = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
     const timePart: string = `${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}`;

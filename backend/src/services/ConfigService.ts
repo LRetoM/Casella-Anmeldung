@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import type { IServerConfig } from "../interfaces/IServerConfig";
+import type { IServerConfig } from "../interfaces/IServerConfig.js";
 
 const CONFIG_FILE_PATH: string = join(process.cwd(), "src/config/server.config.json");
 

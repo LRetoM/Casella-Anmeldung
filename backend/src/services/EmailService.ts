@@ -1,7 +1,7 @@
 import nodemailer, { type Transporter } from "nodemailer";
 
-import { ConfigService } from "./ConfigService";
-import type { IServerConfig } from "../interfaces/IServerConfig";
+import { ConfigService } from "./ConfigService.js";
+import type { IServerConfig } from "../interfaces/IServerConfig.js";
 
 interface ISendRegistrationMailParameters {
     vorname: string;
