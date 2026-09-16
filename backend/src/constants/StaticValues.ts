@@ -1,0 +1,2 @@
+export const JSON_BODY_SIZE_LIMIT: string = "10mb";
+export const DEFAULT_PORT: number = 3001;

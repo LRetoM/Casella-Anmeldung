@@ -1,0 +1,33 @@
+export interface ITranslation {
+    Title: string;
+    Vorname: string;
+    Nachname: string;
+    Geburtsdatum: string;
+    Foto: string;
+    Unterschrift: string;
+    Tag: string;
+    Monat: string;
+    Jahr: string;
+    Monate: string[];
+    KameraStarten: string;
+    FotoAufnehmen: string;
+    NeuAufnehmen: string;
+    Absenden: string;
+    WirdGesendet: string;
+    ErfolgreichVersendet: string;
+    ErrFelder: string;
+    ErrUnterschrift: string;
+    ErrSendenPrefix: string;
+    KameraFehlerPrefix: string;
+    ConsentNote: string;
+    InactivityTitle: string;
+    InactivitySubtext: string;
+    InactivityBtn: string;
+    InactivityResetBtn: string;
+    Unternehmen: string;
+    UnternehmenPlatzhalter: string;
+    UnternehmenAndere: string;
+    UnternehmenEingeben: string;
+    HaeufigGenutzt: string;
+    AlleUnternehmen: string;
+}

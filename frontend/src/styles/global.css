@@ -1,0 +1,373 @@
+:root {
+    --blue: #01aef0;
+    --grey: #404040;
+    --radius: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-family: Montserrat, Verdana, sans-serif;
+    color: var(--grey);
+}
+
+.header {
+    position: relative;
+    width: 90%;
+    margin-left: 5%;
+    padding: 26px 20px;
+    background: var(--blue);
+    color: #fff;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 0 0 24px 24px;
+}
+
+#btn-lang {
+    position: absolute;
+    top: 50%;
+    right: 23px;
+    transform: translateY(-50%);
+    display: flex;
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+#btn-lang svg {
+    width: 24px;
+    height: 24px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px 20px 50px;
+}
+
+.field {
+    position: relative;
+    margin-top: 26px;
+    padding: 20px;
+    border: 1.5px solid #ccc;
+    border-radius: var(--radius);
+    transition: border-color 0.25s;
+}
+
+.field:focus-within {
+    border-color: var(--grey);
+}
+
+.field > .field-label {
+    position: absolute;
+    top: -8px;
+    left: 18px;
+    padding: 0 6px;
+    background: #fff;
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.field input[type="text"],
+#firma-select {
+    width: 100%;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--grey);
+    font: 700 1rem/20px Montserrat, sans-serif;
+}
+
+.field input[type="text"]::placeholder {
+    color: #c8c8c8;
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: var(--radius);
+    font: 700 0.95rem Montserrat, sans-serif;
+    cursor: pointer;
+    transition:
+        transform 0.15s,
+        opacity 0.15s;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary,
+.btn-secondary {
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-primary {
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 26px;
+}
+
+.date-row {
+    display: flex;
+    gap: 10px;
+}
+
+.date-row select {
+    flex: 1;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--grey);
+    font: 700 1rem Montserrat, sans-serif;
+}
+
+.date-row select.placeholder,
+#firma-select.placeholder {
+    color: #c8c8c8;
+    font-weight: 500;
+}
+
+.date-row select option,
+#firma-select option {
+    color: #000;
+    font-weight: 400;
+}
+
+#firma-select optgroup {
+    color: var(--blue);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.85rem;
+}
+
+#firma-select option[value="andere"] {
+    font-weight: 700;
+}
+
+.cam-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3.5 / 4;
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 4px);
+    background: #f5f5f5;
+}
+
+#video,
+#photo-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+#silhouette {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+#silhouette svg {
+    width: 95%;
+    height: auto;
+    margin-top: 25px;
+    stroke: #fff;
+    fill: none;
+    opacity: 0.5;
+}
+
+#countdown {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#btn-start-cam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: 15rem;
+    height: 4rem;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.cam-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.cam-buttons .btn {
+    width: 100%;
+    height: 3.5rem;
+}
+
+.sig-wrap {
+    position: relative;
+}
+
+#sigpad {
+    display: block;
+    width: 100%;
+    height: 180px;
+    background: #fff;
+    border-radius: calc(var(--radius) - 4px);
+    touch-action: none;
+}
+
+#btn-clear-sig {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #c5c5c5;
+}
+
+#btn-clear-sig svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.consent-note {
+    margin: 18px 4px 0;
+    color: #6b6b6b;
+    font-size: 1rem;
+    line-height: 1.5;
+    hyphens: auto;
+}
+
+.status {
+    display: none;
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.status.ok {
+    display: block;
+    background: #e6f5e8;
+    color: #1a6b2c;
+}
+
+.status.err {
+    display: block;
+    background: #e2e2e2;
+    color: #000;
+}
+
+.success-overlay,
+.inactivity-badge {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--blue);
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+}
+
+.success-overlay.show,
+.inactivity-badge.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-overlay {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.inactivity-badge {
+    z-index: 1001;
+    flex-direction: column;
+}
+
+.inactivity-badge p {
+    max-width: 340px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+#inactivity-title {
+    margin-bottom: 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+#inactivity-subtext {
+    margin-bottom: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.inactivity-badge button {
+    width: 80%;
+    max-width: 300px;
+    height: 3rem;
+    background: #fff;
+    color: var(--blue);
+}
